@@ -4,7 +4,7 @@
  * @returns a promise that resolves to the sum of all numbers in the 2D array
  * or rejects if the array is empty
  */
-function sum2DArray(arr: number[][]): Promise<number> {
+function sumNums(arr: number[][]): Promise<number> {
     return new Promise((resolve, reject) => {
         console.log('Sum called ... ');
         if(arr.length === 0) {
@@ -37,8 +37,24 @@ const array2D = [
     [7, 8, 9]
 ];
 
-const sumPromise1 = sum2DArray(array2D);
-console.log('sumPromise1:', sumPromise1);
+//const sumPromise1 = sum2DArray(array2D);
+//console.log('sumPromise1:', sumPromise1);
 
-const sumPromise2 = sum2DArray([]);
-console.log('sumPromise2:', sumPromise2);
+const sp1 = sumNums(array2D);
+
+sp1.then((result) => {
+    console.log('Result:', result);
+}).catch((error) => {
+    console.log('Error:', error);
+});
+
+//const sumPromise2 = sum2DArray([]);
+//console.log('sumPromise2:', sumPromise2);
+
+const sp2 = sumNums([]);
+
+sp2.then((result) => {
+    console.log('Result:', result);
+}).catch((error) => {
+    console.log('Error:', error);
+});

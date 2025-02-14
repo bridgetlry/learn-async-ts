@@ -2,3 +2,11 @@
 - Is there a difference in the flow of execution from when the code was in the setTimeout function?
 - Is the flow of execution in both these examples different from the flow of execution with the examples using the fetch() API, which also returns a promise? 
 - If yes, explain the code execution difference. Add your explanation to this file.
+
+
+The flow of execution was different when replacing setTimeout with the extracted code. we call sum2Darray, 
+which is asynchronous because it returns a promise, therefore we know it will not run sequentially with other lines of code.
+We reject the promise if it is a length of zero, otherwise we go ahead to setTimeout which runs the code in it in a specific amount of time.
+This function computes the sum of the 2D array.
+
+At the end we return the promise: we resolve if we are able to complete a summation.
